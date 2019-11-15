@@ -1,6 +1,9 @@
 name: Build
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   linux-build:
@@ -15,7 +18,7 @@ jobs:
       
     - uses: actions/upload-artifact@master
       with:
-        name: my-artifact
+        name: kotlin-io
         path: build/classes/kotlin/linux/main/kotlin-io.klib
       
       
@@ -28,5 +31,11 @@ jobs:
         
       - name: Create Gradle Build
         run: gradle build
+        
+      - uses: actions/upload-artifact@master
+        with:
+          name: kotlin-io
+          path: build/classes/kotlin/linux/main/kotlin-io.klib
+
 
       
