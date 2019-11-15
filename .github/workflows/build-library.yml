@@ -3,14 +3,24 @@ name: Build
 on: [push]
 
 jobs:
-  build:
+  linux-build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-    - uses: docker://gcr.io/cloud-builders/gradle
       
-    - name: Gradle Build...
+    - name: Create Gradle Build
       run: gradle build
+      
+  macOS-build:
+    
+    runs-on: macOS-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+        
+      - name: Create Gradle Build
+        run: gradle build
+
       
