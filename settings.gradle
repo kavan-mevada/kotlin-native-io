@@ -1,0 +1,4 @@
+rootProject.name = 'kotlin-io'
+
+
+enableFeaturePreview('GRADLE_METADATA')
