@@ -1,6 +1,9 @@
 
 # Kotlin Native File IO
 
+![build](https://github.com/kavanmevada/kotlin-native-io/workflows/Build/badge.svg)
+  
+
 ## Path Object
 
 An Path object that may be used to locate a file in a file system. It will typically represent a system dependent file path.
