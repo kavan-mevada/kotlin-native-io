@@ -1,4 +1,4 @@
-name: CI
+name: Build
 
 on: [push]
 
@@ -16,5 +16,5 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
-        gradle build
+        gradle :io:build
         echo test, and deploy your project.
