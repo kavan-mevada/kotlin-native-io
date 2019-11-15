@@ -16,5 +16,5 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
-        gradle :io:build
+        gradle build
         echo test, and deploy your project.
