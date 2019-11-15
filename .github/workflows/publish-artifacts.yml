@@ -6,18 +6,33 @@ on:
     - master
 
 jobs:
-  linux-build:
 
+  linux-build:
     runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+    
+      - name: Create Gradle Build
+        run: gradle :assemble :linuxMainKlibrary
+    
+      - uses: actions/upload-artifact@master
+        with:
+          name: kotlin-io-linux
+          path: build/classes/kotlin/linux/main/kotlin-io.klib
+
+          
+  macOS-build:
+    runs-on: macOS-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       
-    - name: Create Gradle Build
-      run: gradle :assemble :linuxMainKlibrary
-      
-    - uses: actions/upload-artifact@master
-      with:
-        name: kotlin-io
-        path: build/classes/kotlin/linux/main/kotlin-io.klib
+      - name: Create Gradle Build
+        run: gradle :assemble :linuxMainKlibrary
+        
+      - uses: actions/upload-artifact@master
+        with:
+          name: kotlin-io-macOS
+          path: build/classes/kotlin/linux/main/kotlin-io.klib
       
