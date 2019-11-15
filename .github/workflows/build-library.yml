@@ -1,9 +1,6 @@
 name: Build
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   linux-build:
@@ -16,12 +13,6 @@ jobs:
     - name: Create Gradle Build
       run: gradle :assemble :linuxMainKlibrary
       
-    - uses: actions/upload-artifact@master
-      with:
-        name: kotlin-io
-        path: build/classes/kotlin/linux/main/kotlin-io.klib
-      
-      
   macOS-build:
     
     runs-on: macOS-latest
@@ -30,12 +21,6 @@ jobs:
       - uses: actions/checkout@v1
         
       - name: Create Gradle Build
-        run: gradle build
-        
-      - uses: actions/upload-artifact@master
-        with:
-          name: kotlin-io
-          path: build/classes/kotlin/linux/main/kotlin-io.klib
-
+        run: gradle :assemble :linuxMainKlibrary
 
       
