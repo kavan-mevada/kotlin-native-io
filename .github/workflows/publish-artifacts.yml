@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  linux-build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      
+    - name: Create Gradle Build
+      run: gradle :assemble :linuxMainKlibrary
+      
+    - uses: actions/upload-artifact@master
+      with:
+        name: kotlin-io
+        path: build/classes/kotlin/linux/main/kotlin-io.klib
+      
